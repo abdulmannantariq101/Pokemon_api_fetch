@@ -1,5 +1,6 @@
 // import NetflixSerires from "./components/NetflixSerires";  // default import/export
-
+import React, { useState } from "react";
+import SearchBar from "./components/SearchBar";
 // import RegistrationForm from "./components/RegistrationForm";
 // import TodoList from "./components/TodoList";
 import PokemonList from "./components/PokemonList";
@@ -14,6 +15,7 @@ import PokemonList from "./components/PokemonList";
 
 
 export const App = () => {
+  const [searchTerm, setSearchTerm] = useState("");
   return (
     <>
       {/* <NetflixSerires /> */}
@@ -32,7 +34,11 @@ export const App = () => {
       {/* <ToggleSwitch /> */}
       {/* <TodoList /> */}
       {/* <RegistrationForm /> */}
-      <PokemonList />
+      <h1 style={{ margin: "34px" }}>Pokemon Explorer</h1> 
+
+
+      <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+      <PokemonList searchTerm={searchTerm} />
     </>
   );
 };
